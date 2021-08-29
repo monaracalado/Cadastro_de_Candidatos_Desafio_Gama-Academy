@@ -1,0 +1,234 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de Cadastro de Currículo",
+    "description": "Essa API de cadastro é uma proposta de desafio da GamaAcademy com o intuito de cadastrar currículos da página JobsNet e armazena-los no banco de dados",
+    "contact": {
+      "email": "monaracalado@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+
+  "servers": [
+    {
+      "url": "http://localhost:8081",
+      "description": "Servidor de Teste"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Pagina Da Home",
+        "description": "Essa rota é responsável de levar até a pagina de home que nos leva para o formulário de cadastro"
+      }
+    },
+
+    "/cadastro": {
+      "get": {
+        "summary": "Pagina De Cadastro de Formulário",
+        "description": "Essa rota é responsável de levar até a pagina do formulário de cadastro"
+      }
+    },
+    "/concluido": {
+      "get": {
+        "summary": "Pagina De Agradecimento Pelo cadastro",
+        "description": "Essa rota que é redirecionada apos o envio das informações para o banco de dados "
+      }
+    },
+    "/cadastro/registrado": {
+      "post": {
+        "summary": "Pagina De Registro do Cadastro do Formulário",
+        "description": "Essa rota pega as informações e leva para o banco de dados guarda-la",
+        "tags": ["Candidatos"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Candidatos"
+              },
+              "examples": {
+                "cadastro": {
+                  "value": {
+                    "_id": "612a64c82ef7a49078a20f2e",
+                    "nome": "Ana Lima",
+                    "cpf": "11111166666",
+                    "nascimento": "04/08/2000",
+                    "sexo": "Feminino",
+                    "telefone": "81 96655-7788",
+                    "telefone2": "81 96655-7733",
+                    "email": " ana@gmail.com",
+                    "escolaridade": "Cursando Superior",
+                    "profissao": "Dev",
+                    "cep": "18130013",
+                    "rua": "Rua da Armonia",
+                    "numero": "235",
+                    "bairro": "Belo Jardim",
+                    "cidade": "Recife",
+                    "estado": "Pe",
+                    "estado_civil": "Solteira(o)",
+                    "habilitacao": "Sim",
+                    "habilitacao_categoria": "B",
+                    "veiculo": "Sim",
+                    "veiculo_tipo": "Carro",
+                    "encaminhamento": "Sim",
+                    "encaminhamento_instituicao": "Jobs Empresarial",
+                    "textinput": "Indicação"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Usuário cadastrado com sucesso!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Candidatos"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Usuário já cadastrado!"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Candidatos": {
+        "type": "object",
+        "properties": {
+          "id":{
+              "type": "string",
+              "format": "uuid"
+            },
+          "nome": {
+            "type": "string",
+            "required": true
+          },
+
+          "cpf": {
+            "type": "number",
+            "required": true,
+            "unique": true
+          },
+
+          "nascimento": {
+            "type": "string",
+            "format": "date",
+            "required": true
+          },
+
+          "sexo": {
+            "type": "string",
+            "required": true
+          },
+
+          "telefone": {
+            "type": "string",
+            "required": true
+          },
+
+
+          "telefone2": {
+            "type": "string",
+            "required": false
+          },
+
+          "email": {
+            "type": "string",
+            "required": true,
+            "unique": true
+          },
+
+          "escolaridade": {
+            "type": "string",
+            "required": true
+          },
+
+          "profissao": {
+            "type": "string",
+            "required": true
+          },
+
+          "cep": {
+            "type": "number",
+            "required": true
+          },
+
+          "rua": {
+            "type": "string",
+            "required": true
+          },
+
+          "numero": {
+            "type": "number",
+            "required": true
+          },
+
+          "bairro": {
+            "type": "string",
+            "required": true
+          },
+
+          "cidade": {
+            "type": "string",
+            "required": true
+          },
+
+          "estado": {
+            "type": "string",
+            "required": true
+          },
+          
+          "estado_civil": {
+            "type": "string",
+            "required": false
+          },
+          
+          "habilitacao": {
+            "type": "string",
+            "required": false
+          },
+          
+          "habilitacao_categoria": {
+            "type": "string",
+            "required": false
+          },
+          
+          "veiculo": {
+            "type": "string",
+            "required": false
+          },
+          
+          "veiculo_tipo": {
+            "type": "string",
+            "required": false
+          },
+          
+          "encaminhamento": {
+            "type": "string",
+            "required": false
+          },
+          
+          "encaminhamento_instituicao": {
+            "type": "string",
+            "required": false
+          },
+
+          "textinput": {
+            "type": "string",
+            "required": false
+          }
+
+
+        }
+      }
+    }
+  }
+}

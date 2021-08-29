@@ -1,0 +1,55 @@
+h11 {
+  color: red;
+}
+
+.panel-heading {
+  font-size: 150%;
+}
+
+.home,
+.concluido {
+  text-shadow: #5e5b5bea 2px 2px 2px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-image: linear-gradient(
+    to right top,
+    #570050,
+    #7c2958,
+    #9a4f65,
+    #b37678,
+    #c89d95,
+    #d2a396,
+    #dcaa97,
+    #e5b197,
+    #e59973,
+    #e28151,
+    #dd672e,
+    #d64a00
+  );
+}
+
+.home h1,
+p {
+  margin: 15px;
+}
+
+.botao {
+  text-shadow: #9e9b9b 2px 2px 2px;
+  border: none;
+  color: white;
+  border-radius: 7%;
+
+  padding: 8px 22px;
+  font-size: 15px;
+
+  cursor: pointer;
+  transition: 0.3s ease all;
+}
+
+.botao:hover {
+  background-color: rgba(219, 219, 219, 0.918);
+}
