@@ -6,39 +6,24 @@ h11 {
   font-size: 150%;
 }
 
-.home,
-.concluido {
-  text-shadow: #5e5b5bea 2px 2px 2px;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100vh;
-  background-image: linear-gradient(
-    to right top,
-    #570050,
-    #7c2958,
-    #9a4f65,
-    #b37678,
-    #c89d95,
-    #d2a396,
-    #dcaa97,
-    #e5b197,
-    #e59973,
-    #e28151,
-    #dd672e,
-    #d64a00
-  );
+.corpo {
+  text-shadow: #1b1b1bea 1px 1px 1px;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3) 100%
+    ),
+    url("/img/empresa.jpg");
+  background-size: cover;
+  background-position: top;
+  background-attachment: fixed;
 }
 
-.home h1,
 p {
   margin: 15px;
 }
 
 .botao {
-  text-shadow: #9e9b9b 2px 2px 2px;
+  text-shadow: #9e9b9b 1px 1px 1px;
   border: none;
   color: white;
   border-radius: 7%;
@@ -52,4 +37,54 @@ p {
 
 .botao:hover {
   background-color: rgba(219, 219, 219, 0.918);
+}
+
+header .container,
+.main,
+.apresentacao,
+.curriculo,
+.footer {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+header,
+.apresentacao h2 p,
+.curriculo h2 p,
+.footer {
+  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25) 100%);
+}
+
+header .container {
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+header nav a {
+  margin: 3px;
+}
+
+.main {
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+
+.apresentacao,
+.curriculo {
+  flex-direction: column;
+  width: 50%;
+}
+
+.apresentacao img {
+  width: 100%;
+  border-radius: 10%;
+}
+
+.footer {
+  justify-content: center;
+  font-size: 10px;
 }
